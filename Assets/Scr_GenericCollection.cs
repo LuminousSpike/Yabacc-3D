@@ -74,7 +74,7 @@ public class Scr_GenericCollection : MonoBehaviour
             }
 
             newPos.z = this.transform.position.z;
-            _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 3f));
+            _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
         }
     }
 

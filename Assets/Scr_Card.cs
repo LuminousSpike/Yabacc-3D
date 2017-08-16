@@ -65,6 +65,6 @@ public class Scr_Card : MonoBehaviour
     {
         Vector3 newPos = transform.position;
         newPos.y = height;
-        transform.position = Vector3.Lerp(transform.position, newPos, 3f * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, newPos, 8f * Time.deltaTime);
     }
 }
