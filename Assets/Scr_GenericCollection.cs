@@ -78,12 +78,14 @@ public class Scr_GenericCollection : MonoBehaviour
         }
     }
 
-    public void Remove(Transform child)
+    public int Remove(Transform child)
     {
+		int index = _children.IndexOf(child);
         if (_children.Remove(child))
         {
             _size--;
         }
+		return index;
     }
 
     public void Add(Transform child)
@@ -91,4 +93,9 @@ public class Scr_GenericCollection : MonoBehaviour
         _children.Add(child);
         _size++;
     }
+
+	public void Insert(int index, Transform child) {
+		_children.Insert (index, child);
+		_size++;
+	}
 }

@@ -6,6 +6,7 @@ public class Scr_Card : MonoBehaviour
 {
     bool _played;
     Transform _other;
+	int _lastIndex;
 
     // Use this for initialization
     void Start()
@@ -26,8 +27,7 @@ public class Scr_Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // TODO: Store index before removing.
-        transform.parent.GetComponent<Scr_GenericCollection>().Remove(transform);
+        _lastIndex = transform.parent.GetComponent<Scr_GenericCollection>().Remove(transform);
     }
 
     private void OnMouseUp()
@@ -40,8 +40,7 @@ public class Scr_Card : MonoBehaviour
         }
         else
         {
-            // TODO: Need to also store index so we can reinsert.
-            transform.parent.GetComponent<Scr_GenericCollection>().Add(transform);
+            transform.parent.GetComponent<Scr_GenericCollection>().Insert(_lastIndex, transform);
         }
     }
 
