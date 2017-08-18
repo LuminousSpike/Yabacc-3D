@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 4506258715851350}
   offset: 2.95
+  offsetY: 0.01
   flipped: 0
 --- !u!114 &114829685010724440
 MonoBehaviour:
@@ -322,4 +323,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 4506258715851350}
   offset: 2.95
+  offsetY: 0.01
   flipped: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Scr_TileSide : Scr_GenericCollection
 {
     public Transform _parent;
-    public float offset;
+    public float offset, offsetY;
     public bool flipped;
 
     // Use this for initialization
@@ -13,13 +13,14 @@ public class Scr_TileSide : Scr_GenericCollection
     {
         base.Start();
         GameObject parent = _parent.gameObject;
+        setOffsetX(offset);
+        setOffsetY(offsetY);
+        setFlipped(flipped);
     }
 
     // Update is called once per frame
     void Update()
     {
-        setOffsetX(offset);
-        setFlipped(flipped);
         base.Update();
     }
 }

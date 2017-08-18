@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scr_GenericCollection : MonoBehaviour
 {
-    private float _spacing = 2.5f, _offsetX;
+    private float _spacing = 2.5f, _offsetX, _offsetY;
     private Transform _transform;
     private int _size;
     private bool _centered;
@@ -31,6 +31,11 @@ public class Scr_GenericCollection : MonoBehaviour
     protected void setOffsetX (float offset)
     {
         _offsetX = offset;
+    }
+
+    protected void setOffsetY (float offset)
+    {
+        _offsetY = offset;
     }
 
     protected void setTransform (Transform transform)
@@ -73,7 +78,7 @@ public class Scr_GenericCollection : MonoBehaviour
                 newPos.x = _offsetX + (_spacing * (i - ((_size - 1) / 2f)));
             }
 
-            newPos.z = this.transform.position.z;
+            newPos.y = _offsetY + this.transform.position.y;
             _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
         }
     }
