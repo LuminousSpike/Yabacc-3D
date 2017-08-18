@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Scr_Card : MonoBehaviour
 {
+    public int number;
     bool _played;
     Transform _other;
 	int _lastIndex;
+    TextMesh[] _numberText;
 
     // Use this for initialization
     void Start()
     {
-
+        _numberText = GetComponentsInChildren<TextMesh>();
+        set_number_meshes();
     }
 
     // Update is called once per frame
@@ -66,5 +69,13 @@ public class Scr_Card : MonoBehaviour
         Vector3 newPos = transform.position;
         newPos.y = height;
         transform.position = Vector3.Lerp(transform.position, newPos, 8f * Time.deltaTime);
+    }
+
+    private void set_number_meshes()
+    {
+        foreach (TextMesh textMesh in _numberText)
+        {
+            textMesh.text = number.ToString();
+        }
     }
 }

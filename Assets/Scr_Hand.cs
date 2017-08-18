@@ -14,7 +14,9 @@ public class Scr_Hand : Scr_GenericCollection
         base.Start();
         for (int i = 0; i < CARD_AMOUNT; i++)
         {
-            Add(Instantiate(card_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform));
+            Transform card = Instantiate(card_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform);
+            card.GetComponent<Scr_Card>().number = i;
+            Add(card);
         }
         setCentered(true);
     }
