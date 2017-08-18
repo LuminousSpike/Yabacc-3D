@@ -177,3 +177,4 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 3
     Standalone: 5
+    iPhone: 5
