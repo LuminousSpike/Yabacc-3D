@@ -28,7 +28,7 @@ public class Scr_Deck : Scr_GenericCollection {
 
     private void CreateCards (int amount, Material suite)
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 1; i <= amount; i++)
         {
             Transform card = Instantiate(card_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform);
             card.GetComponent<Scr_Card>().number = ValueOfCard(i, amount);
