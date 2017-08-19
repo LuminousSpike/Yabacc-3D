@@ -119,11 +119,11 @@ public class Scr_GenericCollection : MonoBehaviour
 
             if (_centered)
             {
-                newPos.y = _offsetY + (_spacing * (i - ((_size - 1) / 2f)));
+                newPos.y = transform.position.y + _offsetY + (_spacing * (i - ((_size - 1) / 2f)));
             }
             else
             {
-                newPos.y = _offsetY + (_spacing * i);
+                newPos.y = transform.position.y + _offsetY + (_spacing * i);
             }
 
             if (_flipped)
@@ -147,6 +147,11 @@ public class Scr_GenericCollection : MonoBehaviour
 
     public Transform Pop ()
     {
+        if (_children.Count == 0)
+        {
+            return null;
+        }
+
         Transform child = _children[_children.Count - 1];
         Remove(child);
         return child;
@@ -154,6 +159,10 @@ public class Scr_GenericCollection : MonoBehaviour
 
     public void Add(Transform child)
     {
+        if (child == null)
+        {
+            return;
+        }
         _children.Add(child);
         child.parent = transform;
         _size++;
