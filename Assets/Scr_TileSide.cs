@@ -16,6 +16,7 @@ public class Scr_TileSide : Scr_GenericCollection
         setOffsetX(offset);
         setOffsetY(offsetY);
         setFlipped(flipped);
+        setLayout(CollectionLayout.HorizontalOnly);
     }
 
     // Update is called once per frame

@@ -10,8 +10,17 @@ public class Scr_GenericCollection : MonoBehaviour
     private bool _centered;
     private bool _flipped;
     private bool _reposition;
+    private CollectionLayout _layout;
 
     private List<Transform> _children;
+
+    public enum CollectionLayout
+    {
+        HorizontalOnly,
+        VerticalOnly,
+        Stacked,
+        Grid
+    }
 
     protected void setReposition (bool reposition)
     {
@@ -43,6 +52,16 @@ public class Scr_GenericCollection : MonoBehaviour
         _transform = transform;
     }
 
+    protected void setLayout (CollectionLayout layout)
+    {
+        _layout = layout;
+    }
+
+    protected void setSpacing (float spacing)
+    {
+        _spacing = spacing;
+    }
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -56,11 +75,18 @@ public class Scr_GenericCollection : MonoBehaviour
     {
         if (_reposition)
         {
-            PositionChildren();
+            if (_layout == CollectionLayout.HorizontalOnly)
+            {
+                PositionChildrenHorizontally();
+            }
+            else if (_layout == CollectionLayout.Stacked)
+            {
+                PositionChildrenStacked();
+            }
         }
     }
 
-    void PositionChildren()
+    void PositionChildrenHorizontally()
     {
         Vector3 currentPos, newPos = _transform.position;
 
@@ -79,6 +105,32 @@ public class Scr_GenericCollection : MonoBehaviour
             }
 
             newPos.y = _offsetY + this.transform.position.y;
+            _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
+        }
+    }
+
+    void PositionChildrenStacked()
+    {
+        Vector3 currentPos, newPos = _transform.position;
+
+        for (int i = 0; i < _children.Count; i++)
+        {
+            currentPos = _children[i].position;
+
+            if (_centered)
+            {
+                newPos.y = _offsetY + (_spacing * (i - ((_size - 1) / 2f)));
+            }
+            else
+            {
+                newPos.y = _offsetY + (_spacing * i);
+            }
+
+            if (_flipped)
+            {
+                newPos.y *= -1;
+            }
+
             _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
         }
     }

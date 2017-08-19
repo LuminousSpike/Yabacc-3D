@@ -19,5 +19,6 @@ public class Scr_Hand : Scr_GenericCollection
             Add(card);
         }
         setCentered(true);
+        setLayout(CollectionLayout.HorizontalOnly);
     }
 }
