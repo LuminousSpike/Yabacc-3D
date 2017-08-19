@@ -327,9 +327,19 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114663159872974434, guid: 78fa1f36282b7b74188d4f7a77e27028,
+        type: 2}
+      propertyPath: deck_prefab
+      value: 
+      objectReference: {fileID: 913498241}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78fa1f36282b7b74188d4f7a77e27028, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &913498241 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4770822364656318, guid: 73d471bd196fd5344860c69520136ab5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1341222957}
 --- !u!1001 &1153583396
 Prefab:
   m_ObjectHideFlags: 0

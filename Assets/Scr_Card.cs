@@ -37,6 +37,7 @@ public class Scr_Card : MonoBehaviour
     {
         if (_other != null)
         {
+            transform.parent.GetComponent<Scr_Hand>().PickupCard();
             transform.parent.GetComponent<Scr_GenericCollection>().Remove(transform);
             _played = true;
             _other.GetComponent<Scr_TileSide>().Add(transform);

@@ -5,20 +5,26 @@ using UnityEngine;
 public class Scr_Hand : Scr_GenericCollection
 {
     private const int CARD_AMOUNT = 8;
+    private Scr_Deck _deck;
 
-    public Transform card_prefab;
+    public Transform card_prefab, deck_prefab;
 
     // Use this for initialization
     protected override void Start ()
     {
         base.Start();
+        _deck = deck_prefab.GetComponent<Scr_Deck>();
         for (int i = 0; i < CARD_AMOUNT; i++)
         {
-            Transform card = Instantiate(card_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform);
-            card.GetComponent<Scr_Card>().number = i;
-            Add(card);
+            PickupCard();
         }
         setCentered(true);
         setLayout(CollectionLayout.HorizontalOnly);
+    }
+
+    public void PickupCard ()
+    {
+            Transform card = _deck.Pop();
+            Add(card);
     }
 }

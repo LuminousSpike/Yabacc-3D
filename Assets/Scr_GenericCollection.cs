@@ -145,9 +145,17 @@ public class Scr_GenericCollection : MonoBehaviour
 		return index;
     }
 
+    public Transform Pop ()
+    {
+        Transform child = _children[_children.Count - 1];
+        Remove(child);
+        return child;
+    }
+
     public void Add(Transform child)
     {
         _children.Add(child);
+        child.parent = transform;
         _size++;
     }
 
