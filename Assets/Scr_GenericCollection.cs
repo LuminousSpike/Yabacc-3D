@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Scr_GenericCollection : MonoBehaviour
 {
-    private float _spacing = 2.5f, _offsetX, _offsetY;
+    private float _spacing = 2.5f, _offsetX, _offsetY, _offsetZ;
     private Transform _transform;
-    private int _size;
+    private int _size, _columnCount, _rowCount;
     private bool _centered;
     private bool _flipped;
     private bool _reposition;
@@ -20,6 +20,11 @@ public class Scr_GenericCollection : MonoBehaviour
         VerticalOnly,
         Stacked,
         Grid
+    }
+
+    public List<Transform> getChildren ()
+    {
+        return _children;
     }
 
     protected void setReposition (bool reposition)
@@ -47,6 +52,11 @@ public class Scr_GenericCollection : MonoBehaviour
         _offsetY = offset;
     }
 
+    protected void setOffsetZ (float offset)
+    {
+        _offsetZ = offset;
+    }
+
     protected void setTransform (Transform transform)
     {
         _transform = transform;
@@ -60,6 +70,16 @@ public class Scr_GenericCollection : MonoBehaviour
     protected void setSpacing (float spacing)
     {
         _spacing = spacing;
+    }
+
+    protected void setColumnCount (int count)
+    {
+        _columnCount = count;
+    }
+
+    protected void setRowCount(int count)
+    {
+        _rowCount = count;
     }
 
     // Use this for initialization
@@ -82,6 +102,10 @@ public class Scr_GenericCollection : MonoBehaviour
             else if (_layout == CollectionLayout.Stacked)
             {
                 PositionChildrenStacked();
+            }
+            else if (_layout == CollectionLayout.Grid)
+            {
+                PositionChildrenGrid();
             }
         }
     }
@@ -129,6 +153,51 @@ public class Scr_GenericCollection : MonoBehaviour
             if (_flipped)
             {
                 newPos.y *= -1;
+            }
+
+            _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
+        }
+    }
+
+    void PositionChildrenGrid()
+    {
+        Vector3 currentPos, newPos = _transform.position;
+        int currentRow, currentTier;
+
+        float maxColumnCount = System.Math.Min(_children.Count, _columnCount);
+        float maxRowCount = System.Math.Min(_children.Count / _columnCount, _rowCount) + 1;
+        float posX, posY, posZ;
+
+        for (int i = 0; i < _children.Count; i++)
+        {
+            currentPos = _children[i].position;
+
+            currentRow = i / _columnCount;
+            currentTier = currentRow / _rowCount;
+
+            posX = _offsetX + (_spacing * (i % _columnCount));
+            posY = _offsetY + (_spacing * currentTier);
+            posZ = _offsetZ + (_spacing * (currentRow % _rowCount));
+
+            // TODO: Fix this as it doesn't work correctly.
+            if (_flipped)
+            {
+                posX *= -1;
+                posY *= -1;
+                posZ *= -1;
+            }
+
+            if (_centered)
+            {
+                newPos.x = transform.position.x - (_columnCount / ((maxColumnCount / 2) + 1f)) + posX;
+                newPos.y = transform.position.y + posY;
+                newPos.z = transform.position.z - (_rowCount / maxRowCount) + posZ;
+            }
+            else
+            {
+                newPos.x = transform.position.x + _offsetX + posX;
+                newPos.y = transform.position.y + _offsetY + posY;
+                newPos.z = transform.position.z + _offsetZ + posZ;
             }
 
             _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
