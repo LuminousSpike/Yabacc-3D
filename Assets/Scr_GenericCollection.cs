@@ -189,7 +189,7 @@ public class Scr_GenericCollection : MonoBehaviour
 
             if (_centered)
             {
-                newPos.x = transform.position.x - (_columnCount / ((maxColumnCount / 2) + 1f)) + posX;
+                newPos.x = transform.position.x - ((_columnCount / maxColumnCount) * 1.75f) + posX;
                 newPos.y = transform.position.y + posY;
                 newPos.z = transform.position.z - (_rowCount / maxRowCount) + posZ;
             }
