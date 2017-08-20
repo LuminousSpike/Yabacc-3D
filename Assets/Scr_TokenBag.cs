@@ -12,11 +12,11 @@ public class Scr_TokenBag : Scr_TokenCollection {
     {
         base.Awake();
 
-        CreateTokens(13, mat_red);
-        CreateTokens(11, mat_yellow);
-        CreateTokens(9, mat_green);
-        CreateTokens(7, mat_blue);
-        CreateTokens(5, mat_gray);
+        CreateTokens(13, Suite.Red, mat_red);
+        CreateTokens(11, Suite.Yellow, mat_yellow);
+        CreateTokens(9, Suite.Green, mat_green);
+        CreateTokens(7, Suite.Blue, mat_blue);
+        CreateTokens(5, Suite.Gray, mat_gray);
     }
 
     // Use this for initialization
@@ -36,12 +36,13 @@ public class Scr_TokenBag : Scr_TokenCollection {
         base.Update();
 	}
 
-    private void CreateTokens (int amount, Material suite)
+    private void CreateTokens (int amount, Suite suite, Material mat_suite)
     {
         for (int i = 0; i < amount; i++)
         {
             Transform token = Instantiate(token_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform);
-            token.GetComponent<Renderer>().material = suite;
+            token.GetComponent<Scr_Token>().Suite = suite;
+            token.GetComponent<Renderer>().material = mat_suite;
             Add(token);
         }
     }

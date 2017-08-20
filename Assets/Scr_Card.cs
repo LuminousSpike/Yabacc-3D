@@ -5,6 +5,8 @@ using UnityEngine;
 public class Scr_Card : MonoBehaviour
 {
     public int number;
+    public Suite Suite;
+
     bool _played;
     Transform _other;
 	int _lastIndex;
@@ -35,17 +37,19 @@ public class Scr_Card : MonoBehaviour
 
     private void OnMouseUp()
     {
+        Scr_Hand hand = transform.parent.GetComponent<Scr_Hand>();
+
         if (_other != null)
         {
-            transform.parent.GetComponent<Scr_Hand>().PickupCard();
-            transform.parent.GetComponent<Scr_GenericCollection>().Remove(transform);
-            _played = true;
-            _other.GetComponent<Scr_TileSide>().Add(transform);
+            if (_other.GetComponent<Scr_TileSide>().Add(transform))
+            {
+                hand.PickupCard();
+                _played = true;
+                return;
+            }
         }
-        else
-        {
-            transform.parent.GetComponent<Scr_GenericCollection>().Insert(_lastIndex, transform);
-        }
+
+        hand.Insert(_lastIndex, transform);
     }
 
     private void OnTriggerStay(Collider other)

@@ -13,11 +13,11 @@ public class Scr_Deck : Scr_GenericCollection {
     {
         base.Awake();
 
-        CreateCards(13, mat_red);
-        CreateCards(11, mat_yellow);
-        CreateCards(9, mat_green);
-        CreateCards(7, mat_blue);
-        CreateCards(5, mat_gray);
+        CreateCards(13, Suite.Red, mat_red);
+        CreateCards(11, Suite.Yellow, mat_yellow);
+        CreateCards(9, Suite.Green, mat_green);
+        CreateCards(7, Suite.Blue, mat_blue);
+        CreateCards(5, Suite.Gray, mat_gray);
     }
 
     // Use this for initialization
@@ -33,13 +33,16 @@ public class Scr_Deck : Scr_GenericCollection {
         base.Update();
 	}
 
-    private void CreateCards (int amount, Material suite)
+    private void CreateCards (int amount, Suite suite, Material mat_suite)
     {
         for (int i = 1; i <= amount; i++)
         {
             Transform card = Instantiate(card_prefab, this.transform.position, Quaternion.Euler(90, 0, 0), transform);
-            card.GetComponent<Scr_Card>().number = ValueOfCard(i, amount);
-            card.GetComponent<Renderer>().material = suite;
+            Scr_Card scr_Card = card.GetComponent<Scr_Card>();
+
+            scr_Card.number = ValueOfCard(i, amount);
+            scr_Card.Suite = suite;
+            card.GetComponent<Renderer>().material = mat_suite;
             Add(card);
         }
     }

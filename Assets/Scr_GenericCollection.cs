@@ -248,15 +248,18 @@ public class Scr_GenericCollection : MonoBehaviour
         return child;
     }
 
-    public void Add(Transform child)
+    public virtual bool Add(Transform child)
     {
         if (child == null)
         {
-            return;
+            return false;
         }
+        
         _children.Add(child);
         child.parent = transform;
         _size++;
+
+        return true;
     }
 
 	public void Insert(int index, Transform child) {
