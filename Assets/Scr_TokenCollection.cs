@@ -15,6 +15,12 @@ public class Scr_TokenCollection : Scr_GenericCollection
     override protected void Start()
     {
         base.Start();
+
+        setLayout(CollectionLayout.Grid);
+        setSpacing(0.5f);
+        setOffsetY(0.2f);
+        setColumnCount(6);
+        setRowCount(4);
     }
 
     // Update is called once per frame

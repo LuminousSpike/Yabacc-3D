@@ -9,6 +9,7 @@ public class Scr_TileSide : Scr_GenericCollection
     public bool flipped;
 
     private Scr_Tile _tileParent;
+    private Scr_GenericCollection _discardPile;
     public List<Suite> _wantedSuites;
 
     override protected void Awake()
@@ -24,6 +25,7 @@ public class Scr_TileSide : Scr_GenericCollection
         base.Start();
 
         _tileParent = _parent.GetComponent<Scr_Tile>();
+        _discardPile = _tileParent.prefab_system.GetComponent<Scr_System>().DiscardPile;
         _wantedSuites.AddRange(_tileParent.getTokenSuites());
 
         setOffsetX(offset);
@@ -40,13 +42,20 @@ public class Scr_TileSide : Scr_GenericCollection
 
     public override bool Add (Transform child)
     {
+        bool result = false;
         Scr_Card card = child.GetComponent<Scr_Card>();
+
         if (wantedCard(card))
         {
-            return base.Add(child);
+            result = base.Add(child);
+
+            if (_wantedSuites.Count == 0)
+            {
+                _tileParent.setScore(getCardValues(), flipped);
+            }
         }
 
-        return false;
+        return result;
     }
 
     private bool wantedCard (Scr_Card card)
@@ -54,9 +63,31 @@ public class Scr_TileSide : Scr_GenericCollection
         if (_wantedSuites.Contains(card.Suite))
         {
             _wantedSuites.Remove(card.Suite);
+
             return true;
         }
 
         return false;
+    }
+
+    private int getCardValues ()
+    {
+        List<Transform> children = getChildren();
+        int result = 0;
+
+        foreach (Transform obj in children)
+        {
+            result += obj.GetComponent<Scr_Card>().number;
+        }
+
+        return result;
+    }
+
+    public void DiscardCards ()
+    {
+        List<Transform> children = getChildren();
+        _discardPile.AddAll(children);
+        RemoveAll(children);
+        _wantedSuites.AddRange(_tileParent.getTokenSuites());
     }
 }

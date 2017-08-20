@@ -23,12 +23,8 @@ public class Scr_TokenBag : Scr_TokenCollection {
     override protected void Start () {
         base.Start();
 
-        setLayout(CollectionLayout.Grid);
-        setSpacing(0.5f);
-        setOffsetY(0.3f);
         setColumnCount(8);
         setRowCount(8);
-        setCentered(true);
 	}
 	
 	// Update is called once per frame

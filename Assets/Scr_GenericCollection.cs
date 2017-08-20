@@ -12,7 +12,7 @@ public class Scr_GenericCollection : MonoBehaviour
     private bool _reposition;
     private CollectionLayout _layout;
 
-    private List<Transform> _children;
+    public List<Transform> _children;
 
     public enum CollectionLayout
     {
@@ -170,12 +170,13 @@ public class Scr_GenericCollection : MonoBehaviour
     void PositionChildrenGrid()
     {
         Vector3 currentPos, newPos = _transform.position;
-        int currentRow, currentTier;
 
         float maxColumnCount = System.Math.Min(_children.Count, _columnCount);
         float maxRowCount = System.Math.Min(_children.Count / _columnCount, _rowCount) + 1;
         float posX, posY, posZ;
-
+        float posRow, posColumn;
+        int currentRow, currentTier;
+        
         for (int i = 0; i < _children.Count; i++)
         {
             currentPos = _children[i].position;
@@ -183,30 +184,25 @@ public class Scr_GenericCollection : MonoBehaviour
             currentRow = i / _columnCount;
             currentTier = currentRow / _rowCount;
 
-            posX = _offsetX + (_spacing * (i % _columnCount));
-            posY = _offsetY + (_spacing * currentTier);
-            posZ = _offsetZ + (_spacing * (currentRow % _rowCount));
-
-            // TODO: Fix this as it doesn't work correctly.
-            if (_flipped)
-            {
-                posX *= -1;
-                posY *= -1;
-                posZ *= -1;
-            }
+            posColumn = i % maxColumnCount;
+            posRow = currentRow % maxRowCount;
 
             if (_centered)
             {
-                newPos.x = transform.position.x - ((_columnCount / maxColumnCount) * 1.75f) + posX;
-                newPos.y = transform.position.y + posY;
-                newPos.z = transform.position.z - (_rowCount / maxRowCount) + posZ;
+                posX = _spacing * (posColumn - ((maxColumnCount / 2f) - _spacing));
+                posZ = _spacing * (posRow - ((maxRowCount / 2f) - _spacing));
             }
             else
             {
-                newPos.x = transform.position.x + _offsetX + posX;
-                newPos.y = transform.position.y + _offsetY + posY;
-                newPos.z = transform.position.z + _offsetZ + posZ;
+                posX = _spacing * (posColumn - ((_columnCount / 2f) - _spacing));
+                posZ = _spacing * (posRow - ((_rowCount / 2f) - _spacing));
             }
+
+            posY = _spacing * currentTier;
+
+            newPos.x = transform.position.x + _offsetX + posX;
+            newPos.y = transform.position.y + _offsetY + posY;
+            newPos.z = transform.position.z + _offsetZ + posZ;
 
             _children[i].position = Vector3.Lerp(currentPos, newPos, (Time.deltaTime * 8f));
         }
@@ -220,6 +216,17 @@ public class Scr_GenericCollection : MonoBehaviour
             _size--;
         }
 		return index;
+    }
+
+    public void RemoveAll (List<Transform> children)
+    {
+        Transform[] remove = children.ToArray();
+        int count = children.Count;
+
+        for (int i = 0; i < count; i++)
+        {
+            Remove(remove[i]);
+        }
     }
 
     public Transform Pop ()
@@ -258,6 +265,19 @@ public class Scr_GenericCollection : MonoBehaviour
         _children.Add(child);
         child.parent = transform;
         _size++;
+
+        return true;
+    }
+
+    public virtual bool AddAll (List<Transform> children)
+    {
+        foreach(Transform child in children)
+        {
+            if (Add(child) == false)
+            {
+                return false;
+            }
+        }
 
         return true;
     }

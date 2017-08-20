@@ -307,10 +307,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea00d6d8fc8490408c1856bfaf1b124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _children: []
   _parent: {fileID: 4506258715851350}
   offset: 2.95
   offsetY: 0.01
   flipped: 0
+  _wantedSuites: 
 --- !u!114 &114484439817846518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,8 +324,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1abd4c36e7d8d0418c9631a6c621a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _children: []
   prefab_TokenBag: {fileID: 0}
+  prefab_system: {fileID: 0}
+  prefab_LeftTileSide: {fileID: 4489130338061586}
+  prefab_RightTileSide: {fileID: 4353196526743096}
   token_count: 0
+  flipped: 0
 --- !u!114 &114829685010724440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,7 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea00d6d8fc8490408c1856bfaf1b124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _children: []
   _parent: {fileID: 4506258715851350}
   offset: 2.95
   offsetY: 0.01
   flipped: 1
+  _wantedSuites: 
