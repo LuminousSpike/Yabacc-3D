@@ -23,8 +23,9 @@ public class Scr_Hand : Scr_GenericCollection
         {
             PickupCard();
         }
-        setCentered(true);
         setLayout(CollectionLayout.HorizontalOnly);
+        setOffsetY(0.01f);
+        setCentered(true);
     }
 
     public void PickupCard ()

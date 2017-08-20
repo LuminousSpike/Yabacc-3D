@@ -386,15 +386,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4691288509936566, guid: 78fa1f36282b7b74188d4f7a77e27028, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 114663159872974434, guid: 78fa1f36282b7b74188d4f7a77e27028,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114663159872974434, guid: 78fa1f36282b7b74188d4f7a77e27028,
         type: 2}
       propertyPath: deck_prefab
