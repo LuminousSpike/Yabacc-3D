@@ -26,12 +26,12 @@ public class Scr_TileSide : Scr_GenericCollection
 
         _tileParent = _parent.GetComponent<Scr_Tile>();
         _discardPile = _tileParent.prefab_system.GetComponent<Scr_System>().DiscardPile;
-        _wantedSuites.AddRange(_tileParent.getTokenSuites());
 
         setOffsetX(offset);
         setOffsetY(offsetY);
         setFlipped(flipped);
         setLayout(CollectionLayout.HorizontalOnly);
+        GetWantedCards();
     }
 
     // Update is called once per frame
@@ -88,6 +88,11 @@ public class Scr_TileSide : Scr_GenericCollection
         List<Transform> children = getChildren();
         _discardPile.AddAll(children);
         RemoveAll(children);
+        _wantedSuites.AddRange(_tileParent.getTokenSuites());
+    }
+
+    public void GetWantedCards()
+    {
         _wantedSuites.AddRange(_tileParent.getTokenSuites());
     }
 }

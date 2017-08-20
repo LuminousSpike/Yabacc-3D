@@ -17,8 +17,15 @@ public class Scr_Tile : Scr_TokenCollection {
     private Suite[] _tokenSuites;
     int _leftSideScore, _rightSideScore;
 
-	// Use this for initialization
-	override protected void Start () {
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _tokenSuites = new Suite[token_count];
+    }
+
+    // Use this for initialization
+    override protected void Start () {
         base.Start();
 
         setLayout(CollectionLayout.HorizontalOnly);
@@ -32,7 +39,6 @@ public class Scr_Tile : Scr_TokenCollection {
         _leftTileSide = prefab_LeftTileSide.GetComponent<Scr_TileSide>();
         _rightTileSide = prefab_RightTileSide.GetComponent<Scr_TileSide>();
         _system = prefab_system.GetComponent<Scr_System>();
-        _tokenSuites = new Suite[token_count];
 
         getTokensFromBag();
 	}

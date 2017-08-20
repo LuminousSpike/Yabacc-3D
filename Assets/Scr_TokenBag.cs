@@ -8,7 +8,7 @@ public class Scr_TokenBag : Scr_TokenCollection {
     public Material mat_gray, mat_blue, mat_green, mat_yellow, mat_red;
 
 
-    private void Awake()
+    override protected void Awake()
     {
         base.Awake();
 
