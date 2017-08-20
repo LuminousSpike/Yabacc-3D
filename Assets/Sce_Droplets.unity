@@ -523,6 +523,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 65417707826284376, guid: 73d471bd196fd5344860c69520136ab5,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 65417707826284376, guid: 73d471bd196fd5344860c69520136ab5,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 65417707826284376, guid: 73d471bd196fd5344860c69520136ab5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73d471bd196fd5344860c69520136ab5, type: 2}
   m_IsPrefabParent: 0
