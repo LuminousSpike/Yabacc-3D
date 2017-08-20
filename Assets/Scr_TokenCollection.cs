@@ -6,6 +6,11 @@ public class Scr_TokenCollection : Scr_GenericCollection
 {
 
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Use this for initialization
     override protected void Start()
     {

@@ -151,6 +151,16 @@ Prefab:
       propertyPath: m_Name
       value: Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: prefab_TokenBag
+      value: 
+      objectReference: {fileID: 560971895}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: token_count
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cd8883f710730b429755313722dcf0c, type: 2}
   m_IsPrefabParent: 0
@@ -196,6 +206,16 @@ Prefab:
     - target: {fileID: 1454451965346498, guid: 6cd8883f710730b429755313722dcf0c, type: 2}
       propertyPath: m_Name
       value: Tile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: prefab_TokenBag
+      value: 
+      objectReference: {fileID: 560971895}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: token_count
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cd8883f710730b429755313722dcf0c, type: 2}
@@ -248,48 +268,6 @@ MonoBehaviour:
   mat_green: {fileID: 2100000, guid: 56e5d03a12391cb438653b16e5a6c5ca, type: 2}
   mat_yellow: {fileID: 2100000, guid: 873c0878af06d3e4585db26455c0c4e5, type: 2}
   mat_red: {fileID: 2100000, guid: b9d0a074eb778db4cb2df85386a2de2b, type: 2}
---- !u!1001 &683175754
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4628275851811452, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7bf37d840518a27429a1cf0df8714bb5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &699531618
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +459,16 @@ Prefab:
       propertyPath: m_InflateMesh
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: prefab_TokenBag
+      value: 
+      objectReference: {fileID: 560971895}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: token_count
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cd8883f710730b429755313722dcf0c, type: 2}
   m_IsPrefabParent: 0
@@ -621,6 +609,16 @@ Prefab:
     - target: {fileID: 4506258715851350, guid: 6cd8883f710730b429755313722dcf0c, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: prefab_TokenBag
+      value: 
+      objectReference: {fileID: 560971895}
+    - target: {fileID: 114484439817846518, guid: 6cd8883f710730b429755313722dcf0c,
+        type: 2}
+      propertyPath: token_count
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cd8883f710730b429755313722dcf0c, type: 2}

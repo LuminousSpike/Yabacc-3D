@@ -82,12 +82,17 @@ public class Scr_GenericCollection : MonoBehaviour
         _rowCount = count;
     }
 
-    // Use this for initialization
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         _children = new List<Transform>();
         _transform = transform;
         _reposition = true;
+    }
+
+    // Use this for initialization
+    protected virtual void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -117,7 +122,10 @@ public class Scr_GenericCollection : MonoBehaviour
         for (int i = 0; i < _children.Count; i++)
         {
             currentPos = _children[i].position;
+
+            newPos.z = transform.position.z + _offsetZ;
             newPos.x = _offsetX + (_spacing * i);
+
             if (_flipped)
             {
                 newPos.x *= -1;
@@ -222,6 +230,20 @@ public class Scr_GenericCollection : MonoBehaviour
         }
 
         Transform child = _children[_children.Count - 1];
+        Remove(child);
+        return child;
+    }
+
+    public Transform getRandom ()
+    {
+        int count = _children.Count;
+
+        if (count == 0)
+        {
+            return null;
+        }
+
+        Transform child = _children[Random.Range(0, count)];
         Remove(child);
         return child;
     }

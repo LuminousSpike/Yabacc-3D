@@ -9,14 +9,21 @@ public class Scr_Deck : Scr_GenericCollection {
     public Transform card_prefab;
     public Material mat_gray, mat_blue, mat_green, mat_yellow, mat_red;
 
-	// Use this for initialization
-	override protected void Start () {
-        base.Start();
+    protected override void Awake()
+    {
+        base.Awake();
+
         CreateCards(13, mat_red);
         CreateCards(11, mat_yellow);
         CreateCards(9, mat_green);
         CreateCards(7, mat_blue);
         CreateCards(5, mat_gray);
+    }
+
+    // Use this for initialization
+    override protected void Start () {
+        base.Start();
+
         setLayout(CollectionLayout.Stacked);
         setSpacing(0.02f);
 	}

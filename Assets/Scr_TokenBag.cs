@@ -7,15 +7,21 @@ public class Scr_TokenBag : Scr_TokenCollection {
     public Transform token_prefab;
     public Material mat_gray, mat_blue, mat_green, mat_yellow, mat_red;
 
-	// Use this for initialization
-	override protected void Start () {
-        base.Start();
+
+    private void Awake()
+    {
+        base.Awake();
 
         CreateTokens(13, mat_red);
         CreateTokens(11, mat_yellow);
         CreateTokens(9, mat_green);
         CreateTokens(7, mat_blue);
         CreateTokens(5, mat_gray);
+    }
+
+    // Use this for initialization
+    override protected void Start () {
+        base.Start();
 
         setLayout(CollectionLayout.Grid);
         setSpacing(0.5f);

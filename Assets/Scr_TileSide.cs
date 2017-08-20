@@ -8,6 +8,11 @@ public class Scr_TileSide : Scr_GenericCollection
     public float offset, offsetY;
     public bool flipped;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Use this for initialization
     protected override void Start()
     {

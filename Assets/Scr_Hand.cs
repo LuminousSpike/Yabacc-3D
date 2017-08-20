@@ -9,6 +9,11 @@ public class Scr_Hand : Scr_GenericCollection
 
     public Transform card_prefab, deck_prefab;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Use this for initialization
     protected override void Start ()
     {
@@ -24,7 +29,7 @@ public class Scr_Hand : Scr_GenericCollection
 
     public void PickupCard ()
     {
-            Transform card = _deck.Pop();
+            Transform card = _deck.getRandom();
             Add(card);
     }
 }
