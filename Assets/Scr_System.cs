@@ -9,14 +9,40 @@ public class Scr_System : MonoBehaviour {
     public Scr_GenericCollection DiscardPile;
 
 	void awake () {
-		Application.targetFrameRate = 120;
+		Application.targetFrameRate = 60;
 		QualitySettings.vSyncCount = 0;
 	}
 
 	// Use this for initialization
 	void Start () {
-		
+        PrefabPlayer1.EndTurnListener += OnEndTurn;
+        PrefabPlayer2.EndTurnListener += OnEndTurn;
+
+        if (Random.Range(0, 100) > 50)
+        {
+            ActivePlayer = PrefabPlayer1;
+        }
+        else
+        {
+            ActivePlayer = PrefabPlayer2;
+        }
+
+        ActivePlayer.StartTurn();
 	}
+
+    private void OnEndTurn ()
+    {
+        if (ActivePlayer == PrefabPlayer1)
+        {
+            ActivePlayer = PrefabPlayer2;
+        }
+        else
+        {
+            ActivePlayer = PrefabPlayer1;
+        }
+
+        ActivePlayer.StartTurn();
+    }
 	
 	// Update is called once per frame
 	void Update () {

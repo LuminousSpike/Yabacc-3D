@@ -295,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hand: {fileID: 114422636990897274}
   TokenCollection: {fileID: 114270096324448716}
+  MaterialDefault: {fileID: 2100000, guid: ecf91989bd00a8c4aa01a0b44611489d, type: 2}
+  MaterialActive: {fileID: 0}
 --- !u!114 &114422636990897274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,3 +312,4 @@ MonoBehaviour:
   card_prefab: {fileID: 4024880484138882, guid: 23efddcac60aa244dbccf4f75b12e132,
     type: 2}
   deck_prefab: {fileID: 0}
+  Active: 0

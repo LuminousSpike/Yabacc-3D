@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,33 @@ public class Scr_Hand : Scr_GenericCollection
     private Scr_Deck _deck;
 
     public Transform card_prefab, deck_prefab;
+    public bool Active;
+    public event Action OnTurnEnd;
+
+    public void setActive(bool active)
+    {
+        Active = active;
+        List<Transform> children = getChildren();
+
+        foreach (Transform t in children)
+        {
+            Scr_Card card = t.GetComponent<Scr_Card>();
+            card.setActive(active);
+        }
+    }
+
+
+    private void OnPlayed (Scr_Card card)
+    {
+        card.OnPlayed -= OnPlayed;
+
+        setActive(false);
+
+        if (OnTurnEnd != null)
+        {
+            OnTurnEnd();
+        }
+    }
 
     protected override void Awake()
     {
@@ -30,7 +58,8 @@ public class Scr_Hand : Scr_GenericCollection
 
     public void PickupCard ()
     {
-            Transform card = _deck.getRandom();
-            Add(card);
+        Transform card = _deck.getRandom();
+        card.GetComponent<Scr_Card>().OnPlayed += OnPlayed;
+        Add(card);
     }
 }

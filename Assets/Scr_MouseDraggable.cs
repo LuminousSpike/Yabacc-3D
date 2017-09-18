@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Scr_MouseDraggable : MonoBehaviour {
 
+    public bool Enabled = true;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,8 +18,11 @@ public class Scr_MouseDraggable : MonoBehaviour {
 
     private void OnMouseDrag()
     {
-        float distanceToScreen = Camera.main.WorldToScreenPoint(transform.position).z;
+        if (Enabled)
+        {
+            float distanceToScreen = Camera.main.WorldToScreenPoint(transform.position).z;
 
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceToScreen));
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceToScreen));
+        }
     }
 }
