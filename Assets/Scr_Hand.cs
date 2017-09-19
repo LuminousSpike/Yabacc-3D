@@ -60,6 +60,7 @@ public class Scr_Hand : Scr_GenericCollection
     {
         Transform card = _deck.getRandom();
         card.GetComponent<Scr_Card>().OnPlayed += OnPlayed;
+        card.GetComponent<Scr_Card> ().setActive (Active);
         Add(card);
     }
 }
