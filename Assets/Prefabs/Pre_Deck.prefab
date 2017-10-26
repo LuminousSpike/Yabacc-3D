@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4505564042944914}
   - component: {fileID: 114059046481915456}
   - component: {fileID: 114638960408474458}
+  - component: {fileID: 114003910096283658}
+  - component: {fileID: 114743215154922918}
   m_Layer: 0
   m_Name: Pre_Deck
   m_TagString: Untagged
@@ -65,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1040400753413412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.5, y: 0.25, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.8038106, y: 9.30965, z: -3.2925053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173430529286024}
@@ -126,6 +128,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01, z: 1}
   m_Center: {x: 0, y: 0, z: -0.45}
+--- !u!114 &114003910096283658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040400753413412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6325f7273313fea4484ad12882e633fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _children: []
+  _layout: 2
+  _spacing: 2.5
+  _offsetX: 0
+  _offsetY: 0
+  _offsetZ: 0
+  _transform: {fileID: 0}
+  _size: 0
+  _columnCount: 0
+  _rowCount: 0
+  _centered: 0
+  _flipped: 0
+  _reposition: 0
 --- !u!114 &114059046481915456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,3 +205,21 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114743215154922918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040400753413412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba79c15529aaf04cb8d96bb45fd1017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardCollection: {fileID: 0}
+  CardPrefab: {fileID: 4024880484138882, guid: 23efddcac60aa244dbccf4f75b12e132, type: 2}
+  MaterialGray: {fileID: 2100000, guid: 944a6dc9cb45ae942a6cd197cc74f103, type: 2}
+  MaterialBlue: {fileID: 2100000, guid: 357b3b081e1c4c24ea4ee49a9b1838a5, type: 2}
+  MaterialGreen: {fileID: 2100000, guid: 56e5d03a12391cb438653b16e5a6c5ca, type: 2}
+  MaterialYellow: {fileID: 2100000, guid: 873c0878af06d3e4585db26455c0c4e5, type: 2}
+  MaterialRed: {fileID: 2100000, guid: b9d0a074eb778db4cb2df85386a2de2b, type: 2}
