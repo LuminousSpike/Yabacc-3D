@@ -11,7 +11,7 @@ public enum CollectionLayout
     Grid
 }
 
-public class Collection : NetworkBehaviour
+public class Collection : MonoBehaviour 
 {
 
     public List<Transform> children;

@@ -19,7 +19,7 @@ public class DeckController : NetworkBehaviour
             CardCollection = GetComponent<Collection>();
             CardCollection.layout = CollectionLayout.Stacked;
             CardCollection.collectionContainer.Spacing = 0.02f;
-            CmdCreateCards();
+            CreateCards();
         }
     }
 
@@ -29,14 +29,18 @@ public class DeckController : NetworkBehaviour
 
     }
 
-    [Command]
-    public void CmdCreateCards()
+    public void CreateCards()
     {
         CreateCards(13, Suite.Red);
         CreateCards(11, Suite.Yellow);
         CreateCards(9, Suite.Green);
         CreateCards(7, Suite.Blue);
         CreateCards(5, Suite.Gray);
+    }
+
+    public Transform GetRandom()
+    {
+        return CardCollection.getRandom();
     }
 
     private void CreateCards(int amount, Suite suite)

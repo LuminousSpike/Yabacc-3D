@@ -70,6 +70,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4395221410061366}
+  - component: {fileID: 114221893576363922}
+  - component: {fileID: 114710473045063486}
   m_Layer: 0
   m_Name: Pre_Hand
   m_TagString: Untagged
@@ -87,9 +89,10 @@ GameObject:
   - component: {fileID: 4717705719067510}
   - component: {fileID: 114282382919068676}
   - component: {fileID: 114795487255472034}
+  - component: {fileID: 114270876184569994}
   m_Layer: 0
   m_Name: Pre_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +276,31 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114221893576363922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851436808194074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6325f7273313fea4484ad12882e633fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children: []
+  layout: 0
+--- !u!114 &114270876184569994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880810653711522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a041049234f7142a9c05258d0cabd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handController: {fileID: 0}
 --- !u!114 &114282382919068676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,7 +332,19 @@ MonoBehaviour:
     i14: 190
     i15: 52
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114710473045063486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851436808194074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf62da76303499c46ac98981ede03dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collection: {fileID: 0}
 --- !u!114 &114795487255472034
 MonoBehaviour:
   m_ObjectHideFlags: 1
