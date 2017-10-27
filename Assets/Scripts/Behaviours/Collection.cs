@@ -17,11 +17,9 @@ public class Collection : NetworkBehaviour
     public List<Transform> children;
     public CollectionLayout layout;
 
-    public static ICollectionLayout stackedCollection = new StackedCollectionLayout();
+    public static ICollectionLayout stackedCollection = new StackedCollectionLayout(), gridLayout = new GridCollectionLayout(), horizontalLayout = new HorizontalCollectionLayout();
     public ICollectionLayout currentLayout;
     public CollectionContainer collectionContainer = new CollectionContainer();
-
-    private int size;
 
     // Use this for initialization
     void Start()
@@ -37,15 +35,22 @@ public class Collection : NetworkBehaviour
         {
             stackedCollection.Update(collectionContainer);
         }
+        else if (layout == CollectionLayout.Grid)
+        {
+            gridLayout.Update(collectionContainer);
+        }
+        else if (layout == CollectionLayout.HorizontalOnly)
+        {
+            horizontalLayout.Update(collectionContainer);
+        }
     }
-
 
     public int Remove(Transform child)
     {
         int index = children.IndexOf(child);
         if (children.Remove(child))
         {
-            size--;
+            collectionContainer.Size--;
         }
         return index;
     }
@@ -96,7 +101,7 @@ public class Collection : NetworkBehaviour
 
         children.Add(child);
         child.parent = transform;
-        size++;
+        collectionContainer.Size++;
 
         return true;
     }
@@ -117,6 +122,6 @@ public class Collection : NetworkBehaviour
     public void Insert(int index, Transform child)
     {
         children.Insert(index, child);
-        size++;
+        collectionContainer.Size++;
     }
 }
