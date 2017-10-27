@@ -14,34 +14,38 @@ public enum CollectionLayout
 public class Collection : NetworkBehaviour
 {
 
-    public List<Transform> _children;
-    public CollectionLayout _layout;
+    public List<Transform> children;
+    public CollectionLayout layout;
 
-    public float _spacing = 2.5f, _offsetX, _offsetY, _offsetZ;
-    public Transform _transform;
-    public int _size, _columnCount, _rowCount;
-    public bool _centered;
-    public bool _flipped;
-    public bool _reposition;
+    public static ICollectionLayout stackedCollection = new StackedCollectionLayout();
+    public ICollectionLayout currentLayout;
+    public CollectionContainer collectionContainer = new CollectionContainer();
+
+    private int size;
 
     // Use this for initialization
     void Start()
     {
+        collectionContainer.Transform = this.transform;
+        collectionContainer.Children = this.children;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (layout == CollectionLayout.Stacked)
+        {
+            stackedCollection.Update(collectionContainer);
+        }
     }
 
 
     public int Remove(Transform child)
     {
-        int index = _children.IndexOf(child);
-        if (_children.Remove(child))
+        int index = children.IndexOf(child);
+        if (children.Remove(child))
         {
-            _size--;
+            size--;
         }
         return index;
     }
@@ -59,26 +63,26 @@ public class Collection : NetworkBehaviour
 
     public Transform Pop()
     {
-        if (_children.Count == 0)
+        if (children.Count == 0)
         {
             return null;
         }
 
-        Transform child = _children[_children.Count - 1];
+        Transform child = children[children.Count - 1];
         Remove(child);
         return child;
     }
 
     public Transform getRandom()
     {
-        int count = _children.Count;
+        int count = children.Count;
 
         if (count == 0)
         {
             return null;
         }
 
-        Transform child = _children[Random.Range(0, count)];
+        Transform child = children[Random.Range(0, count)];
         Remove(child);
         return child;
     }
@@ -90,9 +94,9 @@ public class Collection : NetworkBehaviour
             return false;
         }
 
-        //_children.Add(child);
-        //child.parent = transform;
-        _size++;
+        children.Add(child);
+        child.parent = transform;
+        size++;
 
         return true;
     }
@@ -112,7 +116,7 @@ public class Collection : NetworkBehaviour
 
     public void Insert(int index, Transform child)
     {
-        _children.Insert(index, child);
-        _size++;
+        children.Insert(index, child);
+        size++;
     }
 }

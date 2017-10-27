@@ -17,8 +17,8 @@ public class DeckController : NetworkBehaviour
         if (isServer)
         {
             CardCollection = GetComponent<Collection>();
-            CardCollection._layout = CollectionLayout.Stacked;
-            CardCollection._spacing = 0.02f;
+            CardCollection.layout = CollectionLayout.Stacked;
+            CardCollection.collectionContainer.Spacing = 0.02f;
             CmdCreateCards();
         }
     }

@@ -139,19 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6325f7273313fea4484ad12882e633fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _children: []
-  _layout: 2
-  _spacing: 2.5
-  _offsetX: 0
-  _offsetY: 0
-  _offsetZ: 0
-  _transform: {fileID: 0}
-  _size: 0
-  _columnCount: 0
-  _rowCount: 0
-  _centered: 0
-  _flipped: 0
-  _reposition: 0
+  children: []
+  layout: 2
 --- !u!114 &114059046481915456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,8 +207,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCollection: {fileID: 0}
   CardPrefab: {fileID: 4024880484138882, guid: 23efddcac60aa244dbccf4f75b12e132, type: 2}
-  MaterialGray: {fileID: 2100000, guid: 944a6dc9cb45ae942a6cd197cc74f103, type: 2}
-  MaterialBlue: {fileID: 2100000, guid: 357b3b081e1c4c24ea4ee49a9b1838a5, type: 2}
-  MaterialGreen: {fileID: 2100000, guid: 56e5d03a12391cb438653b16e5a6c5ca, type: 2}
-  MaterialYellow: {fileID: 2100000, guid: 873c0878af06d3e4585db26455c0c4e5, type: 2}
-  MaterialRed: {fileID: 2100000, guid: b9d0a074eb778db4cb2df85386a2de2b, type: 2}
